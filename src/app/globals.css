@@ -99,16 +99,18 @@ a {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 70px;
   margin: 20px 0;
-  background-color: var(--perla);
-  margin-left: 10%;
+  background-color: var(--azul);
+  color: var(--perla);
 }
 
 .imagen {
   width: 30%;
   height: 30%;
-  margin-right: 20px;
+  margin-right: 40px;
+  margin-left: auto;
+
 }
 
 .imagen img {
@@ -121,11 +123,14 @@ a {
 }
 
 .texto h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 54px;
+  margin-bottom: 40px;
+}
+.texto h3 {
+  font-size: 40px;
+  margin-bottom:40px;
 }
 
 .texto p {
   font-size: 18px;
-  margin-bottom: 10px;
 }

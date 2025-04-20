@@ -4,15 +4,24 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className="seccion">
+    <div>
+    <section className="seccion">
       <div className="imagen">
         <Image src="/pokemon.jpg" width={1000} height={1000} alt="imagen" className="imagen" />
       </div>
       <div className="texto">
         <h2>Pokemon</h2>
-        <p>La mejor web de pokemon</p>
-        <p>En esta página podes encontrar tus pokemon favoritos</p>
+        <h3>La mejor web de pokemon</h3>
+        <p>En esta página podes encontrar tus pokemon favoritos, ver sus estadísticas, habilidades y mucho más. 
+        <br></br>
+        Además podrás ver sus evoluciones y como conseguirlos.
+        </p>
+        
       </div>
-    </div>
+    </section>
+   </div>
+
+
+  
   );
 }
