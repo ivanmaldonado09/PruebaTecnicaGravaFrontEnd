@@ -1,6 +1,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --turquesa: #1282A2;
+  --azul: #001F54;
+  --gris: #D3D3D3;
+  --perla: #F5F3F4;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,4 +43,48 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+
+
+
+
+
+
+
+.header{
+  background-color: var(--perla);
+  padding: 15px 0;
+ 
+}
+
+.header .container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo{
+  background-color: var(--turquesa);
+  margin: 0;
+  font-size: 24px;
+  color: var(--perla);
+  padding: 8px 20px;
+  border-radius: 20px;
+}
+
+.nav{
+  display: flex;
+  gap: 20px;
+}
+.nav a{
+  background-color: var(--azul);
+  color: var(--perla);
+  font-size: 18px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  transition: all .3s ease;
 }
