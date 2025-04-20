@@ -21,8 +21,8 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--);
+  background: var(--perla);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -53,7 +53,7 @@ a {
 
 
 .header{
-  background-color: var(--perla);
+  
   padding: 15px 0;
  
 }
@@ -87,4 +87,45 @@ a {
   padding: 8px 20px;
   border-radius: 20px;
   transition: all .3s ease;
+}
+
+
+
+
+
+
+.seccion {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: var(--perla);
+  margin-left: 10%;
+}
+
+.imagen {
+  width: 30%;
+  height: 30%;
+  margin-right: 20px;
+}
+
+.imagen img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.texto {
+  width: 50%;
+}
+
+.texto h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.texto p {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
