@@ -211,13 +211,13 @@ a {
 .seccion-3 .titulo{
   font-size: 40px;
   color: var(--turquesa);
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 }
 
 .seccion-3 .subtitulo{
   font-size: 20px;
   color: var(--azul);
-  margin-bottom: 40px;
+  margin-bottom:10px;
   font-weight: bold;
 }
 

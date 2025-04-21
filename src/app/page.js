@@ -6,6 +6,9 @@ import { useState, useEffect} from "react";
 export default function Home() {
 
   const [listaPokemon, setListaPokemon] = useState([]);
+  const [tipos, setTipos] = useState([]);
+
+
   const obtenerPokemons = async () => {
     try {
       const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1300');
@@ -32,9 +35,17 @@ export default function Home() {
     }
   };
 
+  const obtenerTipos = async () => {
+    const res = await fetch('https://pokeapi.co/api/v2/type');
+    const data = await res.json();
+    setTipos(data.results);
+  };
+
+
  
   useEffect(() => {
     obtenerPokemons();
+    obtenerTipos();
   }, []);
   
   return (
@@ -77,10 +88,19 @@ export default function Home() {
 
 <section className="seccion-3">
         <h2 className="titulo">Explorar Pokémon</h2>
-        <p className="subtitulo">Filtro</p>
-
-       
-
+        <p className="subtitulo">Filtrar por tipo</p>
+        <div style={{ margin: '20px 0' }}>
+          <select
+            style={{ padding: '10px', borderRadius: '6px', minWidth: '200px' }}
+          >
+            <option value="">Seleccione el tipo</option>
+            {tipos.map((tipo) => (
+              <option key={tipo.name} value={tipo.name}>
+                {tipo.name.charAt(0).toUpperCase() + tipo.name.slice(1)}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="cards">
           {listaPokemon.map((poke) => (
             <div key={poke.id} className="card">
