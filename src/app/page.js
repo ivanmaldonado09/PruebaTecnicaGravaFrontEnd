@@ -11,7 +11,6 @@ export default function Home() {
       const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1300');
       const data = await res.json();
       const pokemonsRandom = [];
-
        
       const indices = Array.from({ length: 6 }, () => Math.floor(Math.random() * data.results.length));
       const promises = indices.map((i) => fetch(data.results[i].url).then((res) => res.json()));
