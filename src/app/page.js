@@ -7,6 +7,7 @@ export default function Home() {
 
   const [listaPokemon, setListaPokemon] = useState([]);
   const [tipos, setTipos] = useState([]);
+  const [tipoSeleccionado, setTipoSeleccionado] = useState('');
 
 
   const obtenerPokemons = async () => {
@@ -42,11 +43,46 @@ export default function Home() {
   };
 
 
+  const obtenerPokemonsPorTipo = async (tipo) => {
+    try {
+      const res = await fetch(`https://pokeapi.co/api/v2/type/${tipo}`);
+      const data = await res.json();
+
+      const pokemonFiltrados = data.pokemon
+        .map((p) => p.pokemon)
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 6);
+
+      const detalles = await Promise.all(
+        pokemonFiltrados.map((p) => fetch(p.url).then((res) => res.json()))
+      );
+
+      const pokes = detalles.map((p) => ({
+        id: p.id,
+        nombre: p.name,
+        imagen: p.sprites.front_default,
+        tipos: p.types.map((t) => t.type.name),
+        habilidades: p.abilities.map((a) => a.ability.name),
+      }));
+
+      setListaPokemon(pokes);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
  
   useEffect(() => {
     obtenerPokemons();
     obtenerTipos();
   }, []);
+
+
+  useEffect(() => {
+    if (tipoSeleccionado) {
+      obtenerPokemonsPorTipo(tipoSeleccionado);
+    }
+  }, [tipoSeleccionado]);
   
   return (
     <div>
@@ -91,6 +127,8 @@ export default function Home() {
         <p className="subtitulo">Filtrar por tipo</p>
         <div style={{ margin: '20px 0' }}>
           <select
+           value={tipoSeleccionado}
+           onChange={(e) => setTipoSeleccionado(e.target.value)}
             style={{ padding: '10px', borderRadius: '6px', minWidth: '200px' }}
           >
             <option value="">Seleccione el tipo</option>
