@@ -32,6 +32,22 @@ export default function RootLayout({ children }) {
         </div>
       </header>
       <main>{children}</main>
+      <footer className="footer">
+          <div className="container">
+            <div className="footer-content">
+              <div className="info">
+                <h2 className="titulo">Todos los derechos reservados</h2>
+                <p>Direccion 123</p>
+                <p>11 2030-2222</p>
+              </div>
+              <div className="iconos">
+                <a href="#"><span className="icono">FB</span></a>
+                <a href="#"><span className="icono">IG</span></a>
+                <a href="#"><span className="icono">X</span></a>
+              </div>
+            </div>
+          </div>
+        </footer>
     </body>
   </html>
   );
