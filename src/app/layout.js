@@ -24,15 +24,15 @@ export default function RootLayout({ children }) {
         <div className="container">
           <a href="#" className="logo">Grava</a>
           <nav className="nav">
-            <a href="#" className="nav-link">Inicio</a>
-            <a href="#" className="nav-link">Pokemon</a>
-            <a href="#" className="nav-link">Nosotros</a>
-            <a href="#" className="nav-link">Contacto</a>
+            <a href="#nosotros" className="nav-link">Nostros</a>
+            <a href="#habilidades" className="nav-link">Habilidades</a>
+            <a href="#pokemons" className="nav-link">Explora pokemons</a>
+            <a href="#contacto" className="nav-link">Contacto</a>
           </nav>
         </div>
       </header>
       <main>{children}</main>
-      <footer className="footer">
+      <footer className="footer" id="contacto">
           <div className="container">
             <div className="footer-content">
               <div className="info">

@@ -86,7 +86,7 @@ export default function Home() {
   
   return (
     <div>
-    <section className="seccion">
+    <section className="seccion" id="nosotros">
       <div className="imagen">
         <Image src="/pokemonfondo.jpg" width={1920} height={1080} alt="imagen" className="imagen" />
       </div>
@@ -101,7 +101,7 @@ export default function Home() {
       </div>
     </section>
 
-    <section className="seccion-2">
+    <section className="seccion-2" id="habilidades">
   <h2 className="titulo">Habilidades</h2>
 
   <p className="subtitulo">Estas son las principales habilidades de los pokemon</p>
@@ -122,7 +122,7 @@ export default function Home() {
   </div>
 </section>
 
-<section className="seccion-3">
+<section className="seccion-3" id="pokemons">
         <h2 className="titulo">Explorar Pokémon</h2>
         <p className="subtitulo">Filtrar por tipo</p>
         <div style={{ margin: '20px 0' }}>
