@@ -1,8 +1,43 @@
+'use client';
 import Image from "next/image";
-import styles from "./page.module.css";
+import { useState, useEffect} from "react";
 
 
 export default function Home() {
+
+  const [listaPokemon, setListaPokemon] = useState([]);
+  const obtenerPokemons = async () => {
+    try {
+      const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1300');
+      const data = await res.json();
+      const pokemonsRandom = [];
+
+       
+      const indices = Array.from({ length: 6 }, () => Math.floor(Math.random() * data.results.length));
+      const promises = indices.map((i) => fetch(data.results[i].url).then((res) => res.json()));
+      const details = await Promise.all(promises);
+
+      for (const p of details) {
+        pokemonsRandom.push({
+          id: p.id,
+          nombre: p.name,
+          imagen: p.sprites.front_default,
+          tipos: p.types.map((t) => t.type.name),
+          habilidades: p.abilities.map((a) => a.ability.name),
+        });
+      }
+
+      setListaPokemon(pokemonsRandom);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+ 
+  useEffect(() => {
+    obtenerPokemons();
+  }, []);
+  
   return (
     <div>
     <section className="seccion">
@@ -40,6 +75,28 @@ export default function Home() {
     </div>
   </div>
 </section>
+
+<section className="seccion-3">
+        <h2 className="titulo">Explorar Pokémon</h2>
+        <p className="subtitulo">Filtro</p>
+
+       
+
+        <div className="cards">
+          {listaPokemon.map((poke) => (
+            <div key={poke.id} className="card">
+              <img className="card-imagen" src={poke.imagen} alt={poke.nombre} style={{ width: '100px', height: '100px' }} />
+              <div className="card-titulo">{poke.nombre.toUpperCase()}</div>
+              <div className="card-texto">
+                <strong>Tipo:</strong> {poke.tipos.join(', ')}
+              </div>
+              <div className="card-texto">
+                <strong>Habilidades:</strong> {poke.habilidades.join(', ')}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
    </div>
 
 
