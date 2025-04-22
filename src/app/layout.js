@@ -33,7 +33,6 @@ export default function RootLayout({ children }) {
       </header>
       <main>{children}</main>
       <footer className="footer" id="contacto">
-          <div className="container">
             <div className="footer-content">
               <div className="info">
                 <h2 className="titulo">Todos los derechos reservados</h2>
@@ -46,7 +45,6 @@ export default function RootLayout({ children }) {
                 <a href="#"><span className="icono">X</span></a>
               </div>
             </div>
-          </div>
         </footer>
     </body>
   </html>
