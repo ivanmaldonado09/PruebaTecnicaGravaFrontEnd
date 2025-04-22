@@ -16,9 +16,13 @@ export default function Home() {
       const data = await res.json();
       const pokemonsRandom = [];
        
-      const indices = Array.from({ length: 6 }, () => Math.floor(Math.random() * data.results.length));
-      const promises = indices.map((i) => fetch(data.results[i].url).then((res) => res.json()));
-      const details = await Promise.all(promises);
+      const urls = data.results.map((p) => p.url);
+      const urlsMezcladas = urls.sort(() => 0.5 - Math.random());
+      const urlsSeleccionadas = urlsMezcladas.slice(0, 6);
+      
+      const details = await Promise.all(
+        urlsSeleccionadas.map((url) => fetch(url).then((res) => res.json()))
+      );
 
       for (const p of details) {
         pokemonsRandom.push({
